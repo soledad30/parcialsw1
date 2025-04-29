@@ -217,37 +217,43 @@ exports.removeCollaborator = async (req, res) => {
   }
 }
   // Obtener colaboradores de un proyecto
-exports.getCollaborators = async (req, res) => {
-  try {
-    const project = await Project.findById(req.params.id)
-      .populate('collaborators', 'username email');
-    
-    if (!project) {
-      return res.status(404).json({ message: 'Proyecto no encontrado' });
+  exports.getCollaborators = async (req, res) => {
+    try {
+      const project = await Project.findById(req.params.id)
+        .populate('collaborators', 'username email');
+      
+      if (!project) {
+        return res.status(404).json({ message: 'Proyecto no encontrado' });
+      }
+      
+      // Verificar si el usuario tiene acceso al proyecto
+      if (!project.owner.equals(req.userId) && !project.collaborators.some(collab => collab._id.equals(req.userId))) {
+        return res.status(403).json({ message: 'No tienes permiso para ver este proyecto' });
+      }
+      
+      // Incluir al propietario con los colaboradores
+      const ownerData = await User.findById(project.owner, 'username email');
+      
+      // Filtrar cualquier colaborador que tenga el mismo ID que el propietario
+      const filteredCollaborators = project.collaborators.filter(
+        collab => !collab._id.equals(project.owner)
+      );
+      
+      // Crear una lista unificada con el propietario marcado
+      const allCollaborators = [
+        { ...ownerData.toObject(), isOwner: true },
+        ...filteredCollaborators.map(collab => ({
+          ...collab.toObject(),
+          isOwner: false
+        }))
+      ];
+      
+      console.log("allCollaborators ", allCollaborators);
+      res.status(200).json(allCollaborators);
+    } catch (error) {
+      res.status(500).json({ message: 'Error al obtener colaboradores', error: error.message });
     }
-    
-    // Verificar si el usuario tiene acceso al proyecto
-    if (!project.owner.equals(req.userId) && !project.collaborators.some(collab => collab._id.equals(req.userId))) {
-      return res.status(403).json({ message: 'No tienes permiso para ver este proyecto' });
-    }
-    
-    // Incluir al propietario con los colaboradores
-    const ownerData = await User.findById(project.owner, 'username email');
-    
-    // Crear una lista unificada con el propietario marcado
-    const allCollaborators = [
-      { ...ownerData.toObject(), isOwner: true },
-      ...project.collaborators.map(collab => ({
-        ...collab.toObject(),
-        isOwner: false
-      }))
-    ];
-    
-    res.status(200).json(allCollaborators);
-  } catch (error) {
-    res.status(500).json({ message: 'Error al obtener colaboradores', error: error.message });
-  }
-};
+  };
 
 // Eliminar colaborador de un proyecto
 exports.removeCollaborator = async (req, res) => {

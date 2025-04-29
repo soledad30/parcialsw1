@@ -46,6 +46,8 @@ const ProjectForm = ({ project, onSubmit, onCancel }) => {
     }
   };
 
+  // console.log("canvasBackground ",canvasBackground)
+
   return (
     <div className="project-form">
       <h2>{project ? 'Editar Proyecto' : 'Crear Nuevo Proyecto'}</h2>

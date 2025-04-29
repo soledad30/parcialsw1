@@ -11,7 +11,9 @@ const ShareProjectModal = ({ project, onClose }) => {
   const [shareUrl, setShareUrl] = useState('');
   const [copied, setCopied] = useState(false);
   const [activeUsers, setActiveUsers] = useState([]);
-  
+   console.log("LISTA project ",project)
+   console.log("LISTA collaborators ",collaborators)
+
   useEffect(() => {
     // Generar URL para compartir
     const baseUrl = window.location.origin;
@@ -210,7 +212,7 @@ const ShareProjectModal = ({ project, onClose }) => {
                       <div className="user-details">
                         <div className="user-name">
                           {user.username}
-                          {project.owner === user._id && <span className="owner-badge">Propietario</span>}
+                          {project.owner._id === user._id && <span className="owner-badge">Propietario</span>}
                           {activeUsers.some(activeUser => activeUser.userId === user._id) && (
                             <span className="online-badge">En línea</span>
                           )}

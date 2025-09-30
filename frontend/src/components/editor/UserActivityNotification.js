@@ -1,3 +1,4 @@
+
 // src/components/editor/UserActivityNotification.js
 import React, { useState, useEffect } from 'react';
 import './UserActivityNotification.css';
@@ -55,5 +56,6 @@ const UserActivityNotification = () => {
     </div>
   );
 };
+
 
 export default UserActivityNotification;

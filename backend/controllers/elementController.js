@@ -1,4 +1,5 @@
-// backend/controllers/elementController.js
+// 
+//backend/controllers/elementController.js
 const Element = require('../models/Element');
 const Project = require('../models/Project');
 
@@ -940,4 +941,5 @@ exports.duplicateElement = async (req, res) => {
     console.error('Error detallado al duplicar elemento:', error);
     res.status(500).json({ message: 'Error al duplicar el elemento', error: error.message });
   }
+
 };

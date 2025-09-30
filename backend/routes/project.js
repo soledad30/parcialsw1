@@ -1,3 +1,4 @@
+
 // backend/routes/project.js
 const express = require('express');
 const router = express.Router();
@@ -22,5 +23,6 @@ router.delete('/:id/collaborators/:userId', authMiddleware, projectController.re
 
 // Usuarios activos
 router.get('/:id/active-users', authMiddleware, projectController.getActiveUsers);
+
 
 module.exports = router;

@@ -1,4 +1,5 @@
-// backend/routes/auth.js
+// 
+//backend/routes/auth.js
 const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/authController');
@@ -18,5 +19,6 @@ router.delete('/delete', authMiddleware, authController.deleteAccount);
 
 // Buscar usuarios
 router.get('/search', authMiddleware, authController.searchUsers);
+
 
 module.exports = router;

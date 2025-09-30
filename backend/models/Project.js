@@ -1,4 +1,5 @@
-// backend/models/Project.js
+// 
+//backend/models/Project.js
 const mongoose = require('mongoose');
 
 const ProjectSchema = new mongoose.Schema({
@@ -47,5 +48,6 @@ const ProjectSchema = new mongoose.Schema({
     default: Date.now
   }
 });
+
 
 module.exports = mongoose.model('Project', ProjectSchema);

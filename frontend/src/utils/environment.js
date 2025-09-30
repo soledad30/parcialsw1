@@ -1,4 +1,5 @@
 // src/utils/environment.js
+
 // Configuración de variables de entorno para la aplicación
 
 const environment = {
@@ -7,4 +8,5 @@ const environment = {
     appName: 'Figma Angular Generator'
   };
   
+
   export default environment;

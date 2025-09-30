@@ -1,3 +1,4 @@
+
 // backend/server.js
 const express = require('express');
 const mongoose = require('mongoose');
@@ -158,4 +159,5 @@ io.on('connection', (socket) => {
 
 // Iniciar servidor
 const PORT = process.env.PORT || 5000;
+
 server.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));

@@ -1,3 +1,4 @@
+
 // src/utils/axiosConfig.js
 import axios from 'axios';
 
@@ -38,5 +39,6 @@ axiosInstance.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
 
 export default axiosInstance;

@@ -1,3 +1,4 @@
+
 /* src/components/editor/Canvas.css */
 .canvas-container {
     flex: 1;
@@ -72,4 +73,5 @@
   
   .editor-error button:hover {
     background-color: #3367d6;
+
   }

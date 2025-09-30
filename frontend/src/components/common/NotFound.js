@@ -1,3 +1,4 @@
+
 // src/components/common/NotFound.js
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -17,5 +18,6 @@ const NotFound = () => {
     </div>
   );
 };
+
 
 export default NotFound;

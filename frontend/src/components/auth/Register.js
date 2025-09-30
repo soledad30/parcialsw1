@@ -1,3 +1,4 @@
+
 // src/components/auth/Register.js
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -114,5 +115,6 @@ const Register = () => {
     </div>
   );
 };
+
 
 export default Register;

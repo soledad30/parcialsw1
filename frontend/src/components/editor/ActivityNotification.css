@@ -1,3 +1,4 @@
+
 /* src/components/editor/ActivityNotification.css */
 .activity-notifications {
     position: fixed;
@@ -33,4 +34,5 @@
       transform: translateX(0);
       opacity: 0.9;
     }
+
   }

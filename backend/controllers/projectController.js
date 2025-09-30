@@ -1,3 +1,4 @@
+
 // backend/controllers/projectController.js
 const Project = require('../models/Project');
 const Element = require('../models/Element');
@@ -318,3 +319,4 @@ exports.getActiveUsers = async (req, res) => {
     res.status(500).json({ message: 'Error al obtener usuarios activos', error: error.message });
   }
 };
+

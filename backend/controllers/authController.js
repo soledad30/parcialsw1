@@ -1,4 +1,5 @@
-// backend/controllers/authController.js
+// 
+//backend/controllers/authController.js
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 
@@ -235,4 +236,5 @@ exports.searchUsers = async (req, res) => {
     res.status(500).json({ message: 'Error al buscar usuarios', error: error.message });
   }
 };
+
 

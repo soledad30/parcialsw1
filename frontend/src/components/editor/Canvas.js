@@ -1,3 +1,4 @@
+
 // src/components/editor/Canvas.js
 import React, { useRef, useState, useEffect } from 'react';
 import { useEditor } from '../../context/EditorContext';
@@ -273,5 +274,6 @@ const Canvas = () => {
     </div>
   );
 };
+
 
 export default Canvas;

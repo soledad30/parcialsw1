@@ -1,4 +1,5 @@
-// backend/routes/component.js
+// 
+//backend/routes/component.js
 const express = require('express');
 const router = express.Router();
 const elementController = require('../controllers/elementController');
@@ -17,5 +18,6 @@ router.delete('/:id', elementController.deleteElement);
 
 // Exportar a Angular
 router.get('/export/:projectId', elementController.exportToAngular);
+
 
 module.exports = router;

@@ -1,3 +1,4 @@
+
 // src/services/authService.js
 import axios from '../utils/axiosConfig';
 
@@ -83,5 +84,6 @@ const authService = {
     return !!localStorage.getItem('token');
   }
 };
+
 
 export default authService;
